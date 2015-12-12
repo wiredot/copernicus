@@ -14,6 +14,9 @@ $copernicus_class_filename = plugin_dir_path(__FILE__) . 'library/copernicus/cla
 
 if ( file_exists( $copernicus_class_filename ) ) {
 
+	// load composer libraries
+	require_once plugin_dir_path(__FILE__).'library/vendor/autoload.php';
+
 	// load & initialize framework
 	require_once $copernicus_class_filename;
 
