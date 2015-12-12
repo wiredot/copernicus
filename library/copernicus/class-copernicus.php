@@ -23,7 +23,7 @@ class CP {
 	}
 
 	private function autoload_classes($folder_name) {
-		echo $folder_name.'<br>';
+		//echo $folder_name.'<br>';
 		if (file_exists($folder_name)) {
 			$handle = opendir($folder_name);
 			
