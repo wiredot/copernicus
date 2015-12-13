@@ -9,19 +9,11 @@
   License: GPLv2 or later
  */
 
-// main class file path
-$copernicus_class_filename = plugin_dir_path(__FILE__) . 'library/copernicus/class-copernicus.php';
+// load composer libraries
+require __DIR__ . '/vendor/autoload.php';
 
-if ( file_exists( $copernicus_class_filename ) ) {
+use Copernicus\CP;
+use Copernicus\CP_Config;
 
-	// load composer libraries
-	require_once plugin_dir_path(__FILE__).'library/vendor/autoload.php';
-
-	// load & initialize framework
-	require_once $copernicus_class_filename;
-
-	$CP = new CP(__FILE__);
-
-} else {
-	echo 'error loading plugin';
-}
+$CP = new CP();
+$CP = new CP_Config();

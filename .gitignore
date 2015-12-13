@@ -1,2 +1,4 @@
 library/composer.lock
 library/vendor
+composer.lock
+vendor

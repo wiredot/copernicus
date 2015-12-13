@@ -1,25 +1,16 @@
 <?php
 
+namespace Copernicus;
+
 class CP {
 
-	public $plugin_file = '';
-
 	public function __construct($plugin_file = '') {
-
-		$this->plugin_file = $plugin_file;
-
-		// load config file
-		$this->load_config();
-
+		echo 'cp';
 		// autoload copernicus classes
-		$this->autoload_classes(plugin_dir_path($this->plugin_file).'library/copernicus');
+		//$this->autoload_classes(plugin_dir_path($this->plugin_file).'library/copernicus');
 
 		// autoload child theme classes
-		$this->autoload_classes(get_template_directory().'/library');
-	}
-
-	public function load_config() {
-
+		//$this->autoload_classes(get_template_directory().'/library');
 	}
 
 	private function autoload_classes($folder_name) {

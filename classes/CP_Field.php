@@ -1,8 +1,10 @@
 <?php
 
-class CP_Smarty {
+namespace Copernicus;
+
+class CP_Field {
 
 	public function __construct() {
-		//echo 'smarty';
+
 	}
 }

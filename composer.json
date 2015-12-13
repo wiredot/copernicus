@@ -1,0 +1,11 @@
+{
+	"require": {
+        "smarty/smarty": "3.1.*",
+        "sunra/dbug": "master-dev"
+    },
+    "autoload": {
+		"psr-4": {
+			"Copernicus\\": "classes/"
+		}
+	}
+}
