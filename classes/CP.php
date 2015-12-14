@@ -2,10 +2,12 @@
 
 namespace Copernicus;
 
+use Copernicus\Config;
+
 class CP {
 
 	public function __construct($plugin_file = '') {
-		echo 'cp';
+		$cp_config = new Config;
 		// autoload copernicus classes
 		//$this->autoload_classes(plugin_dir_path($this->plugin_file).'library/copernicus');
 

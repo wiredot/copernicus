@@ -2,7 +2,7 @@
 
 namespace Copernicus;
 
-class CP_CPT {
+class CPT {
 
 	public function __construct() {
 		

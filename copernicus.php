@@ -13,7 +13,4 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Copernicus\CP;
-use Copernicus\CP_Config;
-
 $CP = new CP();
-$CP = new CP_Config();

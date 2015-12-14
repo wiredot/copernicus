@@ -2,7 +2,7 @@
 
 namespace Copernicus;
 
-class CP_Field {
+class Field {
 
 	public function __construct() {
 
