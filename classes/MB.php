@@ -2,9 +2,15 @@
 
 namespace Copernicus;
 
+use Ospinto\dBug;
+
 class MB {
 
-	public function __construct() {
-		
+	private $mb;
+
+	public function __construct($mb) {
+		$this->mb = $mb;
+
+		new dBug($this->mb);
 	}
 }

@@ -7,12 +7,27 @@ use Ospinto\dBug;
 class Config {
 
 	private $config = array();
+	private $config_directory = array();
 
-	public function __construct() {
-		$config = $this->load_config_directory(get_stylesheet_directory() . '/config/');
+	public function __construct( $config_directory ) {
+		$this->set_config_directory($config_directory);
+		$config = $this->load_config();
 		$this->set_config($config);
 
 		new dBug($this->get_config());
+	}
+
+	private function load_config() {
+		$config = array();
+
+		foreach ($this->get_config_directory() as $config_directory) {
+			$config_part = $this->load_config_directory($config_directory);
+			if ( is_array($config_part) ) {
+				$config = array_replace_recursive( $config, $config_part );
+			}
+		}
+
+		return $config;
 	}
 
 	private function load_config_directory($directory) {
@@ -25,7 +40,7 @@ class Config {
 			while (false !== ($filename = readdir($handle))) {
 				
 				if (preg_match('/.config.php$/', $filename)) {
-					$config_part = $this->get_config_file($directory.$filename);
+					$config_part = $this->load_config_file($directory.$filename);
 					if ( is_array($config_part) ) {
 						$config = array_replace_recursive( $config, $config_part );
 					}
@@ -37,7 +52,7 @@ class Config {
 		return $config;
 	}
 
-	private function get_config_file($filename) {
+	private function load_config_file($filename) {
 		if (file_exists($filename)) {
 			// get config array from file
 			require_once $filename;
@@ -49,8 +64,16 @@ class Config {
 		return null;
 	}
 
+	private function set_config_directory($config_directory) {
+		$this->config_directory[] = $config_directory;
+	}
+
 	private function set_config($config) {
 		$this->config = $config;
+	}
+
+	public function get_config_directory() {
+		return $this->config_directory;
 	}
 	
 	public function get_config($key = null) {
