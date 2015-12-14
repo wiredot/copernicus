@@ -2,6 +2,8 @@
 
 namespace Copernicus;
 
+use Ospinto\dBug;
+
 class CP_CPT {
 
 	private $cpts;
@@ -16,6 +18,15 @@ class CP_CPT {
 		if ( is_array($this->cpts) ) {
 			$this->register_post_types($this->cpts);
 		}
+
+		$CP_Smarty = new CP_Smarty();
+		new dBug($CP_Smarty);
+
+		(new CP_Image('asdasd'))->get_image_link();
+	}
+
+	public function aa() {
+		
 	}
 
 	private function register_post_types($cpts) {
