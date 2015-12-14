@@ -2,7 +2,7 @@
 
 namespace Copernicus;
 
-class CPT {
+class CP_CPT {
 
 	private $cpts;
 

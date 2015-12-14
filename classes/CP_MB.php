@@ -4,7 +4,7 @@ namespace Copernicus;
 
 use Ospinto\dBug;
 
-class MB {
+class CP_MB {
 
 	private $mb;
 

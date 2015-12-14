@@ -2,7 +2,7 @@
 
 namespace Copernicus;
 
-class Smarty {
+class CP_Smarty {
 
 	public function __construct() {
 		//echo 'smarty';

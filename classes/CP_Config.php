@@ -4,7 +4,7 @@ namespace Copernicus;
 
 use Ospinto\dBug;
 
-class Config {
+class CP_Config {
 
 	private $config = array();
 	private $config_directory = array();
