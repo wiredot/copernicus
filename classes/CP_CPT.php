@@ -20,7 +20,7 @@ class CP_CPT {
 		}
 
 		$CP_Smarty = new CP_Smarty();
-		new dBug($CP_Smarty);
+		//new dBug($CP_Smarty);
 
 		(new CP_Image('asdasd'))->get_image_link();
 	}

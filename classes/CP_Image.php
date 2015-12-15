@@ -18,7 +18,7 @@ class CP_Image {
 		return 'asd';
 	}
 
-	private set_attr($attr) {
+	private function set_attr($attr) {
 
 	}
 }
