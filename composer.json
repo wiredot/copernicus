@@ -5,7 +5,8 @@
     },
     "autoload": {
 		"psr-4": {
-			"Copernicus\\": "classes/"
+			"Copernicus\\": "classes/",
+			"Copernicus\\Fields\\": "classes/Fields/"
 		}
 	}
 }
