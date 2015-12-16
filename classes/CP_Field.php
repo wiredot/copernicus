@@ -11,12 +11,22 @@ abstract class CP_Field {
 	
 	protected $value;
 
+	protected $smarty;
+
 	public function __construct($label, $name, $id, $value = '', $attributes = []) {
 		$this->label = $label;
 		$this->name = $name;
 		$this->id = $id;
 		$this->value = $value;
 		$this->attributes = $attributes;
+
+		$this->init_smarty();
+	}
+
+	public function init_smarty() {
+		$this->smarty = (new CP_Smarty())->get_smarty();
+		$this->smarty->assign('value', $this->value);
+		$this->smarty->assign('attributes', $this->attributes);
 	}
 
 	public function get_label() {
