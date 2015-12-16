@@ -2,6 +2,9 @@
 
 namespace Copernicus;
 
+use Copernicus\Meta_Boxes\CP_Post_Meta_Box;
+use Copernicus\Meta_Boxes\CP_User_Meta_Box;
+use Copernicus\Meta_Boxes\CP_Term_Meta_Box;
 use Ospinto\dBug;
 
 class CP_Meta_Box_Factory {
@@ -16,8 +19,21 @@ class CP_Meta_Box_Factory {
 
 	public function create_meta_boxes() {
 		foreach ($this->meta_boxes as $key => $meta_box) {
-			$meta = new CP_Meta_Box($key, $meta_box['active'], $meta_box);
-			$meta->create_meta_box_if_active();
+
+			switch ($meta_box['type']) {
+				case 'post':
+					$meta = new CP_Post_Meta_Box($key, $meta_box['active'], $meta_box);
+					$meta->create_meta_box_if_active();
+					break;
+				case 'user':
+					$meta = new CP_User_Meta_Box($key, $meta_box['active'], $meta_box);
+					$meta->create_meta_box_if_active();
+					break;
+				case 'term':
+					$meta = new CP_Term_Meta_Box($key, $meta_box['active'], $meta_box);
+					$meta->create_meta_box_if_active();
+					break;
+			}
 		}
 	}
 }

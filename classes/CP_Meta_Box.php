@@ -4,7 +4,7 @@ namespace Copernicus;
 
 use Ospinto\dBug;
 
-class CP_Meta_Box {
+abstract class CP_Meta_Box {
 
 	private $id;
 	private $active;

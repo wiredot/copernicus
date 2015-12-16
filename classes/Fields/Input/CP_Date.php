@@ -4,8 +4,8 @@ namespace Copernicus\Fields\Input;
 
 use Copernicus\Fields\CP_Input;
 
-class CP_Email extends CP_Input {
+class CP_Date extends CP_Input {
 
-	protected $input_type = 'email';
-
+	protected $input_type = 'date';
+	
 }

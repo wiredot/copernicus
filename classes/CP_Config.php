@@ -6,15 +6,14 @@ use Ospinto\dBug;
 
 class CP_Config {
 
-	private $config = array();
+	private static $instance;
+	private static $config = [];
 	private $config_directory = array();
 
-	public function __construct( $config_directory ) {
+	private function __construct() {
+		$config_directory = get_stylesheet_directory() . '/config/';
 		$this->set_config_directory($config_directory);
-		$config = $this->load_config();
-		$this->set_config($config);
-
-		new dBug($this->get_config());
+		self::$config = $this->load_config();
 	}
 
 	private function load_config() {
@@ -68,22 +67,22 @@ class CP_Config {
 		$this->config_directory[] = $config_directory;
 	}
 
-	private function set_config($config) {
-		$this->config = $config;
-	}
-
 	public function get_config_directory() {
 		return $this->config_directory;
 	}
 	
-	public function get_config($key = null) {
+	public static function get_config($key = null) {
+		if (null === self::$instance) {
+            self::$instance = new CP_Config();
+        }
+        
 		if ( $key ) {
 
-			if ( isset($this->config[$key])) {
-				return $this->config[$key];
+			if ( isset(self::$config[$key])) {
+				return self::$config[$key];
 			}
 			return null;
 		}
-		return $this->config;
+		return self::$config;
 	}
 }

@@ -12,28 +12,38 @@ use Ospinto\dBug;
 
 class CP {
 
-	public function __construct($plugin_file = '') {
-		$CP_Config = new CP_Config(get_stylesheet_directory() . '/config/');
+	private static $instance;
 
-		// register custom post types
-		$CP_Custom_Post_Type_Factory = new CP_Custom_Post_Type_Factory($CP_Config->get_config('cpt'));
+	public static $plugin_name = 'Copernicus';
+	private static $plugin_version = '2.0.0';
+
+	public function __construct() {
+		
+		// // register custom post types
+		$CP_Custom_Post_Type_Factory = new CP_Custom_Post_Type_Factory(CP_Config::get_config('cpt'));
 
 		if (is_admin()) {
-			$CP_Admin = new CP_Admin($CP_Config->get_config('mb'));
+			$CP_Admin = new CP_Admin(CP_Config::get_config('mb'));
 			$CP_Admin->init();
 		}
 
-		$CP_Email = new CP_Email('Name', 'text', 'name1', '', ['placeholder' => 'input asdas']);
-		//$CP_Email->show_field();
+		// $CP_Email = new CP_Email('Name', 'text', 'name1', '', ['placeholder' => 'input asdas']);
+		// //$CP_Email->show_field();
 
-		$CP_Input = new CP_Input('Input', 'text', 'name1', '', ['placeholder' => 'input asdas']);
-		//$CP_Input->show_field();
+		// $CP_Input = new CP_Input('Input', 'text', 'name1', '', ['placeholder' => 'input asdas']);
+		// //$CP_Input->show_field();
 
-		$CP_Select = new CP_Select('Select', 'text', 'name1', '');
-		//$CP_Select->show_field();
+		// $CP_Select = new CP_Select('Select', 'text', 'name1', '');
+		// //$CP_Select->show_field();
 
-		$CP_Fieldset = new CP_Fieldset([ ['label' => 'ddlabel', 'name' => 'name', 'id' => 'name', 'type' => 'email'] ]);
-		new dBug($CP_Fieldset->get_fieldset());
+		// $CP_Fieldset = new CP_Fieldset([ ['label' => 'ddlabel', 'name' => 'name', 'id' => 'name', 'type' => 'email'] ]);
+		// //new dBug($CP_Fieldset->get_fieldset());
+	}
 
+	public static function run() {
+		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof CP ) ) {
+			self::$instance = new CP;
+		}
+		return self::$instance;
 	}
 }

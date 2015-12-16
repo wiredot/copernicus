@@ -23,6 +23,10 @@ abstract class CP_Field {
 		$this->init_smarty();
 	}
 
+	/**
+	 * asd asd asd
+	 * @return type
+	 */
 	public function init_smarty() {
 		$this->smarty = (new CP_Smarty())->get_smarty();
 		$this->smarty->assign('label', $this->label);
