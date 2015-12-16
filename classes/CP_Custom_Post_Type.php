@@ -6,34 +6,22 @@ use Ospinto\dBug;
 
 class CP_Custom_Post_Type {
 
-	private $custom_post_types;
+	private $name;
+	private $labels = [];
 
-	public function __construct($custom_post_types) {
-		$this->custom_post_types = $custom_post_types;
-
-		add_action('init', array($this, 'init'));
+	public function __construct($name, $active, $labels) {
+		$this->name = $name;
+		$this->active = $active;
+		$this->labels = $labels;
 	}
 
-	public function init() {
-		if ( is_array($this->custom_post_types) ) {
-			$this->register_post_types($this->custom_post_types);
+	public function register_post_type_if_active() {
+		if ($this->active) {
+			$this->register_post_type();
 		}
-
-		$Smarty = new CP_Smarty();
-		//new dBug($Smarty);
-
-		(new CP_Image('asdasd'))->get_image_link();
 	}
 
-	public function aa() {
-		
-	}
-
-	private function register_post_types($custom_post_types) {
-		
-	}
-
-	private function register_post_type($cpt) {
-
+	private function register_post_type() {
+		new dBug($this->name);
 	}
 }

@@ -7,7 +7,7 @@ abstract class CP_Field {
 	protected $label;
 	protected $name;
 	protected $id;
-	protected $attributes = ['required' => 0];
+	protected $attributes = ['required' => 0, 'placeholder' => ''];
 	
 	protected $value;
 
@@ -18,25 +18,18 @@ abstract class CP_Field {
 		$this->name = $name;
 		$this->id = $id;
 		$this->value = $value;
-		$this->attributes = $attributes;
+		$this->attributes = array_merge($attributes, $this->attributes);
 
 		$this->init_smarty();
 	}
 
 	public function init_smarty() {
 		$this->smarty = (new CP_Smarty())->get_smarty();
+		$this->smarty->assign('label', $this->label);
+		$this->smarty->assign('name', $this->name);
+		$this->smarty->assign('id', $this->id);
 		$this->smarty->assign('value', $this->value);
 		$this->smarty->assign('attributes', $this->attributes);
-	}
-
-	public function get_label() {
-		return $this->label;
-	}
-
-	public function show_label() {
-		$smarty = (new CP_Smarty())->get_smarty();
-		$smarty->assign('asd', 'asdas');
-		echo $this->label;
 	}
 
 	public function show_field() {
