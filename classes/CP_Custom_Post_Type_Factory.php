@@ -10,6 +10,8 @@ class CP_Custom_Post_Type_Factory {
 
 	public function __construct($custom_post_types) {
 		$this->custom_post_types = $custom_post_types;
+
+		add_action('init', array($this, 'register_post_types'));
 	}
 
 	public function register_post_types() {

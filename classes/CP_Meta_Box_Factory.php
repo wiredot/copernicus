@@ -10,6 +10,8 @@ class CP_Meta_Box_Factory {
 
 	public function __construct($meta_boxes) {
 		$this->meta_boxes = $meta_boxes;
+
+		add_action('admin_init', array($this, 'create_meta_boxes'));
 	}
 
 	public function create_meta_boxes() {
