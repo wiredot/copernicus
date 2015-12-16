@@ -5,10 +5,18 @@ namespace Copernicus;
 abstract class CP_Field {
 
 	protected $label;
-	protected $attributes;
+	protected $name;
+	protected $id;
+	protected $attributes = ['required' => 0];
+	
+	protected $value;
 
-	public function __construct($label) {
+	public function __construct($label, $name, $id, $value = '', $attributes = []) {
 		$this->label = $label;
+		$this->name = $name;
+		$this->id = $id;
+		$this->value = $value;
+		$this->attributes = $attributes;
 	}
 
 	public function get_label() {

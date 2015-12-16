@@ -12,15 +12,17 @@
 // load composer libraries
 require __DIR__ . '/vendor/autoload.php';
 
+define( 'CP_PATH', dirname( __FILE__ ) );
+define( 'CP_URL', plugin_dir_url( __FILE__ ) );
+
 use Copernicus\CP;
 use Copernicus\CP_Field;
-use Copernicus\Fields\CP_Input;
+use Copernicus\Fields\Input\CP_Email;
 use Copernicus\Fields\Factory;
 use Ospinto\dBug;
 
 $CP = new CP();
 
-$input = new CP_Input('Name', ['asda', 'asddda']);
-echo $input->show_label();
-echo $input->get_options();
-echo $input->show_field();
+$input = new CP_Email('Name', 'text', 'name1', '', ['placeholder' => 'input asdas']);
+ $input->show_label();
+ $input->show_field();
