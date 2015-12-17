@@ -19,6 +19,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 define( 'CP_PATH', dirname( __FILE__ ) );
 define( 'CP_URL', plugin_dir_url( __FILE__ ) );
+define( 'CP_BASENAME', dirname( plugin_basename( __FILE__ ) ) );
 
 use Copernicus\CP;
 

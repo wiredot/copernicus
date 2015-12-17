@@ -8,6 +8,7 @@ use Copernicus\CP_Fieldset;
 use Copernicus\Fields\CP_Select;
 use Copernicus\Fields\CP_Input;
 use Copernicus\Fields\Input\CP_Email;
+use Copernicus\CP_i18n;
 use Ospinto\dBug;
 
 class CP {
@@ -18,6 +19,7 @@ class CP {
 	private static $plugin_version = '2.0.0';
 
 	public function __construct() {
+		new CP_i18n();
 		
 		// // register custom post types
 		$CP_Custom_Post_Type_Factory = new CP_Custom_Post_Type_Factory(CP_Config::get_config('cpt'));
