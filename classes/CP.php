@@ -16,7 +16,7 @@ class CP {
 	private static $instance;
 
 	public static $plugin_name = 'Copernicus';
-	private static $plugin_version = '2.0.0';
+	public static $plugin_version = '2.0.0';
 
 	public function __construct() {
 		new CP_i18n();

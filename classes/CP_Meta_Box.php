@@ -23,6 +23,6 @@ abstract class CP_Meta_Box {
 	}
 
 	private function create_meta_box() {
-		new dBug($this->meta_box);
+		//new dBug($this->meta_box);
 	}
 }
