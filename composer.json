@@ -1,7 +1,7 @@
 {
 	"require": {
-        "smarty/smarty": "3.1.*",
-        "sunra/dbug": "master-dev"
+        "sunra/dbug": "master-dev",
+        "wiredot/preamp": "master-dev"
     },
     "autoload": {
 		"psr-4": {

@@ -23,16 +23,17 @@ class CP_Meta_Box_Factory {
 			switch ($meta_box['type']) {
 				case 'post':
 					$meta = new CP_Post_Meta_Box($key, $meta_box['active'], $meta_box);
-					$meta->create_meta_box_if_active();
 					break;
 				case 'user':
 					$meta = new CP_User_Meta_Box($key, $meta_box['active'], $meta_box);
-					$meta->create_meta_box_if_active();
 					break;
 				case 'term':
 					$meta = new CP_Term_Meta_Box($key, $meta_box['active'], $meta_box);
-					$meta->create_meta_box_if_active();
 					break;
+			}
+
+			if (is_object($meta)) {
+				$meta->create_meta_box_if_active();
 			}
 		}
 	}

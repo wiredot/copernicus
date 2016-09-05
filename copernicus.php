@@ -24,13 +24,13 @@ define( 'CP_BASENAME', dirname( plugin_basename( __FILE__ ) ) );
 use Copernicus\CP;
 
 function activate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
-	CP_Activator::activate();
+	//require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
+	//CP_Activator::activate();
 }
 
 function deactivate_plugin_name() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
-	CP_Deactivator::deactivate();
+	//require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
+	//CP_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_plugin_name' );

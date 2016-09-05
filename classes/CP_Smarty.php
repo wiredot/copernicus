@@ -11,16 +11,14 @@ class CP_Smarty {
 	private $compile_dirs = [];
 	private $cache_dirs = [];
 
-	private $Smarty;
+	private $smarty;
 
 	public function __construct() {
-
 		$this->template_dirs[] = get_stylesheet_directory() . '/templates/';
 		$this->plugins_dirs[] = get_stylesheet_directory() . '/lib/smarty-plugins/';
 		
 		$this->template_dirs[] = CP_PATH . '/templates/';
 		$this->plugins_dirs[] = CP_PATH.'/lib/smarty-plugins/';
-
 
 		$this->smarty = new Smarty();
 		$this->smarty->addPluginsDir($this->plugins_dirs);

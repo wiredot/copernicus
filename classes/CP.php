@@ -11,22 +11,25 @@ use Copernicus\Fields\Input\CP_Email;
 use Copernicus\CP_i18n;
 use Ospinto\dBug;
 
+use \Preamp\Preamp;
+
 class CP {
 
-	private static $instance;
+	private static $instance = null;
 
 	public static $plugin_name = 'Copernicus';
 	public static $plugin_version = '2.0.0';
 
 	public function __construct() {
-		new CP_i18n();
+		$Preamp = Preamp::run(get_template_directory().'/config/');
+		// new CP_i18n();
 		
 		// // register custom post types
-		$CP_Custom_Post_Type_Factory = new CP_Custom_Post_Type_Factory(CP_Config::get_config('cpt'));
+		//$CP_Custom_Post_Type_Factory = new CP_Custom_Post_Type_Factory(CP_Config::get_config('cpt'));
 
 		if (is_admin()) {
-			$CP_Admin = new CP_Admin(CP_Config::get_config('mb'));
-			$CP_Admin->init();
+			// $CP_Admin = new CP_Admin(CP_Config::get_config('mb'));
+			//$CP_Admin->init();
 		}
 
 		// $CP_Email = new CP_Email('Name', 'text', 'name1', '', ['placeholder' => 'input asdas']);
