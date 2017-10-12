@@ -21,7 +21,7 @@ define( 'CP_PATH', dirname( __FILE__ ) );
 define( 'CP_URL', plugin_dir_url( __FILE__ ) );
 define( 'CP_BASENAME', dirname( plugin_basename( __FILE__ ) ) );
 
-use Copernicus\CP;
+use Wiredot\Copernicus\Core;
 
 function activate_plugin_name() {
 	//require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
@@ -37,7 +37,7 @@ register_activation_hook( __FILE__, 'activate_plugin_name' );
 register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
 
 function cp() {
-	return CP::run();
+	return Core::run();
 }
 
 cp();
