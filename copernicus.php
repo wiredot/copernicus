@@ -36,8 +36,8 @@ function deactivate_plugin_name() {
 register_activation_hook( __FILE__, 'activate_plugin_name' );
 register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
 
-function CP() {
+function cp() {
 	return CP::run();
 }
 
-CP();
+cp();

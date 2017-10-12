@@ -21,7 +21,7 @@ class CP {
 	public static $plugin_version = '2.0.0';
 
 	public function __construct() {
-		$Preamp = Preamp::run(get_template_directory().'/config/');
+		//$Preamp = Preamp::run(get_template_directory().'/config/');
 		// new CP_i18n();
 		
 		// // register custom post types

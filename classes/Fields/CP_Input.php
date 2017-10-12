@@ -10,7 +10,7 @@ class CP_Input extends CP_Field {
 
 	public function get_field() {
 		$this->smarty->assign('input_type', $this->input_type);
-		return $this->smarty->fetch('fields/input.html');
+		return $this->smarty->fetch('fields/input.twig');
 	}
 
 }
