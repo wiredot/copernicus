@@ -2,11 +2,10 @@
 
 namespace Copernicus;
 
-class CP_i18n{
+class CP_I18n {
 
 	public function __construct() {
-		
-		add_action('plugins_loaded', array($this, 'load_textdomain'));
+		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 	}
 
 	public function load_textdomain() {

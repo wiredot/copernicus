@@ -23,11 +23,11 @@ class CP {
 	public function __construct() {
 		//$Preamp = Preamp::run(get_template_directory().'/config/');
 		// new CP_i18n();
-		
+
 		// // register custom post types
 		//$CP_Custom_Post_Type_Factory = new CP_Custom_Post_Type_Factory(CP_Config::get_config('cpt'));
 
-		if (is_admin()) {
+		if ( is_admin() ) {
 			// $CP_Admin = new CP_Admin(CP_Config::get_config('mb'));
 			//$CP_Admin->init();
 		}

@@ -10,7 +10,7 @@ class CP_Image {
 	private $h = 100;
 	private $zc = 'c';
 
-	public function __construct($filename, $attr = array()) {
+	public function __construct( $filename, $attr = array() ) {
 		echo 'image';
 	}
 
@@ -18,7 +18,7 @@ class CP_Image {
 		return 'asd';
 	}
 
-	private function set_attr($attr) {
+	private function set_attr( $attr ) {
 
 	}
 }
