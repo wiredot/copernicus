@@ -13,6 +13,7 @@ class Core {
 
 	public function __construct() {
 		$Preamp = Preamp::run( CP_PATH, CP_URL );
+		new Autoload;
 	}
 
 	public static function run() {
