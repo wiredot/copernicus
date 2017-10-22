@@ -8,12 +8,11 @@ class Core {
 
 	private static $instance = null;
 
-	public static $plugin_name = 'Copernicus';
-	public static $plugin_version = '2.0.0';
-
-	public function __construct() {
-		$Preamp = Preamp::run( CP_PATH, CP_URL );
+	private function __construct() {
+		Preamp::run( CP_URL );
+		new Setup;
 		new Autoload;
+		new Template;
 	}
 
 	public static function run() {
@@ -21,5 +20,17 @@ class Core {
 			self::$instance = new Core;
 		}
 		return self::$instance;
+	}
+
+	public static function header() {
+		Header::show_header();
+	}
+
+	public static function footer() {
+		Footer::show_footer();
+	}
+
+	public static function template() {
+		// new Template::template_dispatch();
 	}
 }
