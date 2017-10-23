@@ -14,7 +14,7 @@ class Setup {
 		$config = Preamp::get_config( 'theme' );
 
 		if ( isset( $config['textdomain'] ) ) {
-			load_theme_textdomain( $config['textdomain'] );
+			load_theme_textdomain( $config['textdomain']['domain'], $config['textdomain']['path'] );
 		}
 
 		if ( isset( $config['support'] ) && is_array( $config['support'] ) ) {
