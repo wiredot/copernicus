@@ -21,16 +21,4 @@ class Core {
 		}
 		return self::$instance;
 	}
-
-	public static function header() {
-		Header::show_header();
-	}
-
-	public static function footer() {
-		Footer::show_footer();
-	}
-
-	public static function template() {
-		// new Template::template_dispatch();
-	}
 }

@@ -34,8 +34,7 @@ class Template {
 			add_filter( "{$type}_template_hierarchy", array( $this, 'template_hierarchy' ) );
 		}
 
-		add_filter( 'template_include', array( $this, 'template_include' ), 9 );
-
+		// add_filter( 'template_include', array( $this, 'template_include' ), 9 );
 		add_filter( 'template_include', array( $this, 'template_include_twig' ) );
 	}
 
