@@ -3,6 +3,7 @@
 namespace Wiredot\Copernicus;
 
 use Wiredot\Preamp\Core as Preamp;
+use Wiredot\Copernicus\Templates\Template;
 
 class Core {
 

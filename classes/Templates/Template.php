@@ -1,8 +1,9 @@
 <?php
 
-namespace Wiredot\Copernicus;
+namespace Wiredot\Copernicus\Templates;
 
 use Wiredot\Preamp\Twig;
+use Wiredot\Copernicus\Templates\Extension;
 
 class Template {
 
@@ -36,6 +37,10 @@ class Template {
 
 		// add_filter( 'template_include', array( $this, 'template_include' ), 9 );
 		add_filter( 'template_include', array( $this, 'template_include_twig' ) );
+
+		$twig_extension = new Extension();
+		$Twig = new Twig;
+		$Twig->twig->addExtension( $twig_extension );
 	}
 
 	public function template_hierarchy( $templates ) {
@@ -60,7 +65,9 @@ class Template {
 		if ( '.twig' === substr( $template, - 5 ) ) {
 			/** @var \Twig_Environment $twig */
 
+			$twig_extension = new Extension();
 			$Twig = new Twig;
+			$Twig->twig->addExtension( $twig_extension );
 			echo $Twig->twig->render( basename( $template ) );
 
 			// $twig = $this['twig.environment'];
