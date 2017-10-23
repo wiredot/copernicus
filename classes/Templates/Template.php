@@ -4,6 +4,7 @@ namespace Wiredot\Copernicus\Templates;
 
 use Wiredot\Preamp\Twig;
 use Wiredot\Copernicus\Templates\Extension;
+use Wiredot\Preamp\Core as Preamp;
 
 class Template {
 
@@ -35,8 +36,8 @@ class Template {
 			add_filter( "{$type}_template_hierarchy", array( $this, 'template_hierarchy' ) );
 		}
 
-		// add_filter( 'template_include', array( $this, 'template_include' ), 9 );
 		add_filter( 'template_include', array( $this, 'template_include_twig' ) );
+		add_filter( 'theme_page_templates', array( $this, 'theme_page_templates' ) );
 
 		$twig_extension = new Extension();
 		$Twig = new Twig;
@@ -51,6 +52,9 @@ class Template {
 			if ( '.php' === substr( $php_template, strlen( $php_template ) - 4 ) ) {
 				$twig_templates[] = substr( $php_template, 0, - 4 ) . '.twig';
 				$twig_templates[] = 'templates/' . substr( $php_template, 0, - 4 ) . '.twig';
+			} else if ( '.twig' === substr( $php_template, strlen( $php_template ) - 5 ) ) {
+				$twig_templates[] = 'templates/' . $php_template;
+				$twig_templates[] = substr( $php_template, 0, - 5 ) . '.php';
 			}
 		}
 
@@ -76,5 +80,19 @@ class Template {
 		}
 
 		return $template;
+	}
+
+	public function theme_page_templates( $post_templates ) {
+		$page_templates = Preamp::get_config( 'template' );
+
+		if ( ! $page_templates || ! is_array( $page_templates ) ) {
+			return $post_templates;
+		}
+
+		foreach ( $page_templates as $id => $template ) {
+			$post_templates[ $id ] = $template['name'];
+		}
+
+		return $post_templates;
 	}
 }
