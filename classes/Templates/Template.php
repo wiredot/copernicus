@@ -37,7 +37,7 @@ class Template {
 		}
 
 		add_filter( 'template_include', array( $this, 'template_include_twig' ) );
-		add_filter( 'theme_page_templates', array( $this, 'theme_page_templates' ) );
+		$this->add_templates();
 
 		$twig_extension = new Extension();
 		$Twig = new Twig;
@@ -82,17 +82,24 @@ class Template {
 		return $template;
 	}
 
-	public function theme_page_templates( $post_templates ) {
-		$page_templates = Preamp::get_config( 'template' );
+	public function add_templates() {
+		$templates = Preamp::get_config( 'template' );
 
-		if ( ! $page_templates || ! is_array( $page_templates ) ) {
-			return $post_templates;
+		if ( ! is_array( $templates ) ) {
+			return;
 		}
 
-		foreach ( $page_templates as $id => $template ) {
-			$post_templates[ $id ] = $template['name'];
-		}
+		$template_post_type = array();
 
-		return $post_templates;
+		foreach ( $templates as $id => $template ) {
+
+			if ( is_array( $template['post_type'] ) ) {
+				foreach ( $template['post_type'] as $post_type ) {
+					new Template_File( $id, $template['name'], $post_type );
+				}
+			} else {
+				new Template_File( $id, $template['name'], $template['post_type'] );
+			}
+		}
 	}
 }
