@@ -4,7 +4,7 @@ namespace Wiredot\Copernicus\Templates;
 
 use Wiredot\Preamp\Twig;
 use Wiredot\Copernicus\Templates\Extension;
-use Wiredot\Preamp\Core as Preamp;
+use Wiredot\Preamp\Config;
 
 class Template {
 
@@ -37,7 +37,8 @@ class Template {
 		}
 
 		add_filter( 'template_include', array( $this, 'template_include_twig' ) );
-		$this->add_templates();
+		add_filter( 'init', array( $this, 'add_templates' ) );
+		// $this->add_templates();
 
 		$twig_extension = new Extension();
 		$Twig = new Twig;
@@ -83,7 +84,8 @@ class Template {
 	}
 
 	public function add_templates() {
-		$templates = Preamp::get_config( 'template' );
+		// echo 'tttt';
+		$templates = Config::get_config( 'template' );
 
 		if ( ! is_array( $templates ) ) {
 			return;

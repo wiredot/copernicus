@@ -2,7 +2,7 @@
 
 namespace Wiredot\Copernicus;
 
-use Wiredot\Preamp\Core as Preamp;
+use Wiredot\Preamp\Config;
 
 class Setup {
 
@@ -11,7 +11,7 @@ class Setup {
 	}
 
 	public function theme_setup() {
-		$config = Preamp::get_config( 'theme' );
+		$config = Config::get_config( 'theme' );
 
 		if ( isset( $config['textdomain'] ) ) {
 			load_theme_textdomain( $config['textdomain']['domain'], $config['textdomain']['path'] );

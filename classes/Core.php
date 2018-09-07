@@ -10,7 +10,8 @@ class Core {
 	private static $instance = null;
 
 	private function __construct() {
-		Preamp::run( CP_URL );
+		Preamp::run( CP_URL, CP_DIR );
+
 		new Setup;
 		new Autoload;
 		new Template;

@@ -17,9 +17,13 @@ if ( ! defined( 'WPINC' ) ) {
 // load composer libraries
 require __DIR__ . '/vendor/autoload.php';
 
-define( 'CP_PATH', dirname( __FILE__ ) );
+define( 'CP', 'wp-event-pilot' );
+define( 'CP_NS', 'cp' );
+define( 'CP_VERSION', '2.0.0' );
+define( 'CP_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CP_URL', plugin_dir_url( __FILE__ ) );
-define( 'CP_BASENAME', dirname( plugin_basename( __FILE__ ) ) );
+define( 'CP_BASENAME', plugin_basename( __FILE__ ) );
+define( 'CP_TEXT_DOMAIN', 'wpep' );
 
 use Wiredot\Copernicus\Core;
 
