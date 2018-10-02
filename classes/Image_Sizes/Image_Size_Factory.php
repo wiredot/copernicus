@@ -11,6 +11,10 @@ class Image_Size_Factory {
 	}
 
 	public function add_image_sizes() {
+		if ( ! is_array( $this->image_sizes ) ) {
+			return;
+		}
+
 		foreach ( $this->image_sizes as $name => $image_size ) {
 			$image_size = new Image_Size( $name, $image_size['width'], $image_size['height'], $image_size['crop'] );
 			$image_size->add_image_size();
