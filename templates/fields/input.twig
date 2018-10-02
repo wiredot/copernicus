@@ -1,0 +1,1 @@
+{% if prefix %}{{ prefix }} {% endif %}<input type="{{ type }}" name="{{ name }}" value="{% if value %}{{ value }}{% elseif default %}{{ default }}{% endif %}" id="{{ id }}"{% for key, attribute in attributes %}{% if attribute != false %} {{ key }}{% if attribute != 'true' %}="{{ attribute }}"{% endif %}{% endif %}{% endfor %}>{% if suffix %} {{ suffix }}{% endif %}

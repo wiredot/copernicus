@@ -2,7 +2,7 @@
 
 namespace Wiredot\Copernicus\Templates;
 
-class Extension extends \Twig_Extension implements \Twig_Extension_GlobalsInterface {
+class Extension extends \Twig_Extension {
 
 	public function getFunctions() {
 		$options = array(
@@ -10,10 +10,13 @@ class Extension extends \Twig_Extension implements \Twig_Extension_GlobalsInterf
 			'needs_context'     => true,
 			'is_safe'           => array( 'all' ),
 		);
+
 		$functions = array();
+
 		foreach ( array( 'get_header', 'get_footer', 'get_sidebar', 'get_template_part', 'get_search_form', 'comments_template' ) as $function ) {
 			$functions[] = new \Twig_SimpleFunction( $function, array( $this, $function ), $options );
 		}
+
 		return $functions;
 	}
 

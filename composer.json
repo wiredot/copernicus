@@ -1,11 +1,20 @@
 {
+	"name": "wiredot/copernicus",
+    "description": "WordPress Theme and Plugin development framework",
+    "version": "2.1.0",
 	"require": {
-        "sunra/dbug": "master-dev",
-        "wiredot/preamp": "master-dev"
+        "twig/twig": "^2.5"
     },
     "autoload": {
 		"psr-4": {
 			"Wiredot\\Copernicus\\": "classes/"
 		}
-	}
+	},
+	"license": "GPL-3.0-or-later",
+	"authors": [
+        {
+            "name": "Piotr Soluch",
+            "email": "psoluch@wiredot.com"
+        }
+    ]
 }

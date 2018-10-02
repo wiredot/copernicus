@@ -1,0 +1,12 @@
+<div class="preamp-tabs">
+	<div class="preamp-tabs-menu">
+		{% for lang_id, language in languages %}
+		<label for="{{ id }}{{ language.postmeta_suffix }}" data-id="preamp-tab-{{ id }}-{{ lang_id }}"{% if loop.index == 1 %} class="active"{% endif %}>{{ language.name }}</label>
+		{% endfor %}
+	</div>
+	{% for lang_id, language in languages %}
+	<div class="preamp-tab{% if loop.index == 1 %} active{% endif %}" id="preamp-tab-{{ id }}-{{ lang_id }}">
+		{{ language.field|raw }}
+	</div>
+	{% endfor %}
+</div>

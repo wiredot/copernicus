@@ -1,0 +1,10 @@
+<fieldset>
+	<legend class="screen-reader-text"><span>{{ label }}</span></legend>
+	{% for key, option in options %}
+		<label>
+			<input type="radio" name="{{ name }}" value="{{ key }}"{% if value == key %} checked="checked"{% endif %}><span>{{ option }}</span>
+		</label>
+		<br>
+	{% endfor %}
+	
+</fieldset>

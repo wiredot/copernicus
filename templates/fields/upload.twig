@@ -1,0 +1,33 @@
+<div class="options">
+	<input type="hidden" name="{{ name }}" value="{{ file }}">
+	<ul class="preamp-upload-container">
+	{% if value %}
+	{% for file in value %}
+	<li>
+		<div class="preamp-thumbnail">
+	 		{{ wp_get_attachment_image( file ) }}
+	 	</div>
+	 	<div class="preamp-details">
+			{% if attributes.title %}<div class="preamp-mb-row">
+				<label for="{{ name }}-title-{{ file }}">{{ __("Title") }}</label>
+				<input type="text" id="{{ name }}-title-{{ file }}" name="{{ name }}_title[]" value="{{ get_the_title(file) }}">
+			</div>{% endif %}
+			{% if attributes.caption %}<div class="preamp-mb-row">
+				<label for="{{ name }}-caption-{{ file }}">{{ __("Caption") }}</label>
+				<input type="text" id="{{ name }}-caption-{{ file }}" name="{{ name }}_caption[]" value="{{ wp_get_attachment_caption(file) }}">
+			</div>{% endif %}
+			{% if attributes.alt %}<div class="preamp-mb-row">
+				<label for="{{ name }}-alt-{{ file }}">{{ __("Alt Text") }}</label>
+				<input type="text" id="{{ name }}-alt-{{ file }}" name="{{ name }}_alt[]" value="{{ get_post_meta(file, '_wp_attachment_image_alt', true) }}">
+			</div>{% endif %}
+		</div>
+		<input type="hidden" name="{{ name }}[]" value="{{ file }}">
+		<a href="#" class="button preamp-remove-file">{{ __("Remove") }}</a>
+	</li>
+	{% endfor %}
+	{% endif %}
+	</ul>
+	<button href="#" class="button button-primary preamp_upload_button"{% if not attributes.multiple and is_array(value) %} disabled="disabled"{% endif %} id="button-{{ id }}">{{ labels.button }}</button>
+</div>
+<script>preampInitUploadButton('{{ id }}', '{{ name }}', {'multiple': '{{ attributes.multiple }}', 'alt': '{{ attributes.alt }}', 'caption': '{{ attributes.caption }}', 'title': '{{ attributes.title }}', 'filetype': '{{ attributes.filetype }}'}, '{{ labels.button }}', '{{ labels.title }}');
+preampInitRemoveButton();</script>

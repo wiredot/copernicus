@@ -1,0 +1,15 @@
+<tr{% if class %} class="{{ class }}"{% endif %}>
+	<th scope="row">{% if type != 'checkbox' and type != 'radio' %}<label for="{{ id }}">{% endif %}{{ label }}{% if type != 'checkbox' %}</label>{% endif %}</th>
+	<td>
+		{{ field|raw }}
+		{% if description %}
+			{% if is_array(description) %}
+			{% for desc in description %}
+				<p class="description">{{ desc|raw }}</p>
+			{% endfor %}
+			{% else %}
+			<p class="description">{{ description|raw }}</p>
+			{% endif %}
+		{% endif %}
+	</td>
+</tr>

@@ -1,0 +1,13 @@
+<select name="{{ name }}" id="{{ id }}"{% for key, attribute in attributes %}{% if attribute != false %} {{ key }}{% if attribute != 'true' %}="{{ attribute }}"{% endif %}{% endif %}{% endfor %}>
+	{% for key, option in options %}
+		{% if is_array(option) %}
+			<optgroup label="{{ key }}">
+				{% for k, opt in option %}
+					<option value="{{ k }}"{% if k == value %} selected="selected"{% endif %}>{{ opt }}</option>
+				{% endfor %}
+			</optgroup>
+		{% else %}
+			<option value="{{ key }}"{% if key == value %} selected="selected"{% endif %}>{{ option }}</option>
+		{% endif %}
+	{% endfor %}
+</select>

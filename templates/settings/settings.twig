@@ -1,0 +1,19 @@
+<div class="wrap preamp-settings-page">
+	<h1>{{ page_title }}</h1>
+	<h2 class="nav-tab-wrapper preamp-option-tabs">
+		{% for tab in tabs %}
+			<a href="#preamp-tab-{{ tab.id }}" class="nav-tab{% if loop.index == 1 %} nav-tab-active{% endif %}">{{ tab.name }}</a>
+		{% endfor %}
+	</h2>
+	{% for tab in tabs %}
+		<div class="preamp-option-tab {% if loop.index == 1 %} active{% endif %}" id="preamp-tab-{{ tab.id }}">
+			<form action="{{ admin_url( 'admin-ajax.php' ) }}?action=preamp_settings_save_{{ menu_slug }}" method="post" class="preamp-settings-form">
+				{{ tab.sections|raw }}
+				<p class="submit">
+					<button name="save" class="button-primary preamp-button" type="submit">Save changes</button><span class="preamp-form-message"></span>
+				</p>
+				<input type="hidden" name="preamp-settings-tab" value="{{ tab.id }}">
+			</form>
+		</div>
+	{% endfor %}
+</div>

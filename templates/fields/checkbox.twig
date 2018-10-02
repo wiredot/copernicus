@@ -1,0 +1,13 @@
+{% if options|length %}
+	<fieldset>
+		<legend class="screen-reader-text"><span>{{ label }}</span></legend>
+		{% for key, option in options %}
+		<label class="checkbox">
+			<input type="checkbox" name="{{ name }}[]" id="{{ id }}-{{ key }}" value="{{ key }}" {% if key in value %} checked="checked"{% endif %}{% for key, attribute in attributes %}{% if attribute != false %} {{ key }}{% if attribute != 'true' %}="{{ attribute }}"{% endif %}{% endif %}{% endfor %}><span>{{ option }}</span>
+		</label>
+		<br>
+		{% endfor %}
+	</fieldset>
+{% else %}
+	<input type="checkbox" name="{{ name }}" value="1" id="{{ id }}"{% if value %} checked="checked"{% endif %}{% for key, attribute in attributes %}{% if attribute != false %} {{ key }}{% if attribute != 'true' %}="{{ attribute }}"{% endif %}{% endif %}{% endfor %}>
+{% endif %}
