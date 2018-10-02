@@ -24,6 +24,7 @@ class CP {
 
 		$template_hierarchy = new Template_Hierarchy();
 		$i18n = new I18n();
+		$setup = new Setup();
 
 		$autoload = new Autoload();
 		$autoload->load_classes();
