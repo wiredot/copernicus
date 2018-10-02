@@ -21,7 +21,7 @@ class Js_Factory {
 			}
 
 			foreach ( $js_file['files'] as $key => $file ) {
-				$js_file['files'][ $key ] = $js_file['url'] . '/' . $file;
+				$js_file['files'][ $key ] = $js_file['url'] . $file;
 			}
 
 			if ( isset( $js_file['front'] ) && $js_file['front'] ) {

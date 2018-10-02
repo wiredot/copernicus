@@ -21,7 +21,7 @@ class Css_Factory {
 			}
 
 			foreach ( $css_file['files'] as $key => $file ) {
-				$css_file['files'][ $key ] = $css_file['url'] . '/' . $file;
+				$css_file['files'][ $key ] = $css_file['url'] . $file;
 			}
 
 			if ( isset( $css_file['front'] ) && $css_file['front'] ) {
