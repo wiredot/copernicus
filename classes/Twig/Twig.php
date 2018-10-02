@@ -55,7 +55,7 @@ class Twig {
 			$directories[] = get_template_directory() . '/templates/';
 		}
 
-		$active_plugins = get_option( 'active_plugins' );
+		$active_plugins = apply_filters( 'cp_active_plugins', get_option( 'active_plugins' ) );
 
 		if ( $active_plugins ) {
 			foreach ( $active_plugins as $plugin ) {
