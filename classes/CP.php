@@ -23,10 +23,10 @@ class CP {
 		define( 'CP_URL', $url );
 		define( 'CP_BASENAME', basename( dirname( dirname( __FILE__ ) ) ) );
 
-		if ( is_admin() ) {
-			new Admin();
-		}
+		add_action( 'after_setup_theme', array( $this, 'init' ) );
+	}
 
+	public function init() {
 		$template_hierarchy = new Template_Hierarchy();
 		$i18n = new I18n();
 		$setup = new Setup();
@@ -60,6 +60,10 @@ class CP {
 
 		$settings = new Settings_Factory( Config::get_config( 'settings' ) );
 		$settings->add_settings();
+
+		if ( is_admin() ) {
+			new Admin();
+		}
 	}
 
 	public static function run( $directory, $url ) {
