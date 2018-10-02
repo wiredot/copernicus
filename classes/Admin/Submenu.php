@@ -72,7 +72,7 @@ class Submenu {
 
 		$response = array(
 			'success' => 1,
-			'message' => __( 'Settings Saved!', 'Copernicus' ),
+			'message' => __( 'Settings Saved!', 'copernicus' ),
 		);
 		echo json_encode( $response );
 		exit;

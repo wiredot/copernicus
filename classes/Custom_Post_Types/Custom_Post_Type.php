@@ -25,7 +25,7 @@ class Custom_Post_Type {
 		$post = get_post();
 
 		$new_messages = $this->args['messages'];
-		$date = date_i18n( __( 'M j, Y @ G:i', 'wp-photo-gallery' ), strtotime( $post->post_date ) );
+		$date = date_i18n( __( 'M j, Y @ G:i', 'copernicus' ), strtotime( $post->post_date ) );
 		$new_messages[9] = str_replace( '%date%', $date, $new_messages[9] );
 		if ( isset( $_GET['revision'] ) ) {
 			$new_messages[5] = str_replace( '%revision%', $_GET['revision'], $new_messages[5] );

@@ -9,20 +9,20 @@
 	 	</div>
 	 	<div class="preamp-details">
 			{% if attributes.title %}<div class="preamp-mb-row">
-				<label for="{{ name }}-title-{{ file }}">{{ __("Title") }}</label>
+				<label for="{{ name }}-title-{{ file }}">{{ __( 'Title', 'copernicus' ) }}</label>
 				<input type="text" id="{{ name }}-title-{{ file }}" name="{{ name }}_title[]" value="{{ get_the_title(file) }}">
 			</div>{% endif %}
 			{% if attributes.caption %}<div class="preamp-mb-row">
-				<label for="{{ name }}-caption-{{ file }}">{{ __("Caption") }}</label>
+				<label for="{{ name }}-caption-{{ file }}">{{ __( 'Caption', 'copernicus' ) }}</label>
 				<input type="text" id="{{ name }}-caption-{{ file }}" name="{{ name }}_caption[]" value="{{ wp_get_attachment_caption(file) }}">
 			</div>{% endif %}
 			{% if attributes.alt %}<div class="preamp-mb-row">
-				<label for="{{ name }}-alt-{{ file }}">{{ __("Alt Text") }}</label>
+				<label for="{{ name }}-alt-{{ file }}">{{ __( 'Alt text', 'copernicus' ) }}</label>
 				<input type="text" id="{{ name }}-alt-{{ file }}" name="{{ name }}_alt[]" value="{{ get_post_meta(file, '_wp_attachment_image_alt', true) }}">
 			</div>{% endif %}
 		</div>
 		<input type="hidden" name="{{ name }}[]" value="{{ file }}">
-		<a href="#" class="button preamp-remove-file">{{ __("Remove") }}</a>
+		<a href="#" class="button preamp-remove-file">{{ __( 'Remove', 'copernicus' ) }}</a>
 	</li>
 	{% endfor %}
 	{% endif %}

@@ -20,8 +20,13 @@ class CP {
 	private function __construct( $directory, $url ) {
 		define( 'CP_DIR', $directory );
 		define( 'CP_URL', $url );
+		define( 'CP_BASENAME', basename( dirname( dirname( __FILE__ ) ) ) );
 
-		new Template_Hierarchy;
+		$template_hierarchy = new Template_Hierarchy();
+		$i18n = new I18n();
+
+		$autoload = new Autoload();
+		$autoload->load_classes();
 
 		$cpt = new Custom_Post_Type_Factory( Config::get_config( 'custom_post_type' ) );
 		$cpt->register_custom_post_types();
