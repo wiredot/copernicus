@@ -2,6 +2,7 @@
 
 namespace Wiredot\Copernicus;
 
+use Wiredot\Copernicus\Admin\Admin;
 use Wiredot\Copernicus\Templates\Template_Hierarchy;
 use Wiredot\Copernicus\Custom_Post_Types\Custom_Post_Type_Factory;
 use Wiredot\Copernicus\Meta_Boxes\Meta_Box_Factory;
@@ -21,6 +22,10 @@ class CP {
 		define( 'CP_DIR', $directory );
 		define( 'CP_URL', $url );
 		define( 'CP_BASENAME', basename( dirname( dirname( __FILE__ ) ) ) );
+
+		if ( is_admin() ) {
+			new Admin();
+		}
 
 		$template_hierarchy = new Template_Hierarchy();
 		$i18n = new I18n();
