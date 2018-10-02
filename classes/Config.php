@@ -27,6 +27,17 @@ class Config {
 			'url' => get_template_directory_uri(),
 		);
 
+		$active_plugins = apply_filters( 'cp_active_plugins', get_option( 'active_plugins' ) );
+
+		if ( $active_plugins ) {
+			foreach ( $active_plugins as $plugin ) {
+				$directories[] = array(
+					'directory' => WP_PLUGIN_DIR . '/' . plugin_dir_path( $plugin ) . 'config/',
+					'url' => plugin_dir_url( $plugin ),
+				);
+			}
+		}
+
 		return apply_filters( 'cp_config_directories', $directories );
 	}
 
